@@ -1,26 +1,28 @@
 @import 'leaflet/dist/leaflet.css';
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ═══════════════════════════════════════════════════════════
    MINI GRIID — Google-Grade Ultra Premium White Design System
-   Google Material You Light · High Contrast · Crisp Typography
+   Google Material You Light · High Contrast White Surface Identity
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* Google Surface Tokens */
+  /* Google Pure White Surface Tokens */
   --surface-0: #ffffff;
   --surface-1: #f8f9fa;
   --surface-2: #f1f3f4;
   --surface-3: #e8eaed;
-  --surface-overlay: rgba(255, 255, 255, 0.94);
+  --surface-overlay: rgba(255, 255, 255, 0.95);
+  --surface-card: #ffffff;
+  --surface-hover: #f8f9fa;
 
-  /* Google Borders */
-  --border-1: rgba(32, 33, 36, 0.08);
+  /* Google Crisp Hairline Borders */
+  --border-1: rgba(60, 64, 67, 0.08);
   --border-2: #dadce0;
   --border-3: #bdc1c6;
   --border-focus: #1a73e8;
 
-  /* Google Typography Colors */
+  /* Google High Contrast Typography */
   --text-title: #202124;
   --text-body: #3c4043;
   --text-secondary: #5f6368;
@@ -28,44 +30,70 @@
   --text-placeholder: #9aa0a6;
   --text-inverse: #ffffff;
 
-  /* Google Signature Accent Blue */
-  --accent: #1a73e8;
-  --accent-dark: #1557b0;
-  --accent-deep: #174ea6;
-  --accent-soft: #e8f0fe;
-  --accent-mid: #d2e3fc;
-  --accent-border: #c6dafc;
+  /* Google Iconic 4-Color Accents */
+  --google-blue: #1a73e8;
+  --google-blue-dark: #1557b0;
+  --google-blue-soft: #e8f0fe;
+  --google-blue-mid: #d2e3fc;
+  --google-blue-border: #c6dafc;
 
-  /* Google Palette Accents */
-  --green: #1e8e3e;
-  --green-soft: #e6f4ea;
-  --green-border: #ceead6;
-  --amber: #f9ab00;
-  --amber-soft: #fef7e0;
-  --amber-border: #feefc3;
-  --red: #d93025;
-  --red-soft: #fce8e6;
-  --red-border: #fad2cf;
-  --violet: #7047eb;
-  --violet-soft: #f3e8ff;
-  --violet-border: #e9d5ff;
+  --google-red: #ea4335;
+  --google-red-dark: #c5221f;
+  --google-red-soft: #fce8e6;
+  --google-red-border: #fad2cf;
+
+  --google-yellow: #fbbc04;
+  --google-yellow-dark: #f29900;
+  --google-yellow-soft: #fef7e0;
+  --google-yellow-border: #feefc3;
+
+  --google-green: #34a853;
+  --google-green-dark: #1e8e3e;
+  --google-green-soft: #e6f4ea;
+  --google-green-border: #ceead6;
+
+  --google-purple: #a142f4;
+  --google-purple-soft: #f3e8ff;
+  --google-purple-border: #e9d5ff;
+
+  /* Alias mappings for backward compatibility */
+  --accent: var(--google-blue);
+  --accent-dark: var(--google-blue-dark);
+  --accent-deep: #174ea6;
+  --accent-soft: var(--google-blue-soft);
+  --accent-mid: var(--google-blue-mid);
+  --accent-border: var(--google-blue-border);
+
+  --green: var(--google-green-dark);
+  --green-soft: var(--google-green-soft);
+  --green-border: var(--google-green-border);
+  --amber: var(--google-yellow-dark);
+  --amber-soft: var(--google-yellow-soft);
+  --amber-border: var(--google-yellow-border);
+  --red: var(--google-red);
+  --red-soft: var(--google-red-soft);
+  --red-border: var(--google-red-border);
+  --violet: var(--google-purple);
+  --violet-soft: var(--google-purple-soft);
+  --violet-border: var(--google-purple-border);
 
   /* Google Material Elevation Shadows */
   --e0: none;
-  --e1: 0 1px 2px 0 rgba(60,64,67,0.12), 0 1px 3px 1px rgba(60,64,67,0.06);
-  --e2: 0 1px 3px 0 rgba(60,64,67,0.15), 0 4px 8px 3px rgba(60,64,67,0.10);
+  --e1: 0 1px 2px 0 rgba(60,64,67,0.10), 0 1px 3px 1px rgba(60,64,67,0.05);
+  --e2: 0 1px 3px 0 rgba(60,64,67,0.15), 0 4px 8px 3px rgba(60,64,67,0.08);
   --e3: 0 4px 12px 0 rgba(60,64,67,0.15), 0 8px 24px 4px rgba(60,64,67,0.10);
   --e4: 0 8px 28px 0 rgba(60,64,67,0.18), 0 16px 40px 6px rgba(60,64,67,0.12);
   --e-inset: inset 0 1px 2px rgba(32,33,36,0.06);
+  --e-pill: 0 2px 8px rgba(60,64,67,0.12);
 
   /* Google Typography & Geometry */
-  --font: 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font: 'Google Sans', 'Google Sans Text', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --r-xs: 6px;
-  --r-sm: 10px;
-  --r-md: 14px;
-  --r-lg: 18px;
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 20px;
   --r-xl: 24px;
   --r-full: 9999px;
 
@@ -102,14 +130,14 @@ input, textarea {
 }
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
   background: var(--border-3);
   border-radius: var(--r-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-border);
+  background: var(--google-blue-border);
 }
 
 /* ═══ ANIMATIONS ═══════════════════════════════════════════ */
@@ -131,7 +159,7 @@ input, textarea {
   to   { opacity: 1; transform: translateX(0); }
 }
 @keyframes scaleUp {
-  from { opacity: 0; transform: scale(0.96); }
+  from { opacity: 0; transform: scale(0.97); }
   to   { opacity: 1; transform: scale(1); }
 }
 @keyframes spin {
@@ -139,7 +167,7 @@ input, textarea {
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.6; transform: scale(0.9); }
+  50%       { opacity: 0.6; transform: scale(0.92); }
 }
 @keyframes ripple {
   0%   { transform: scale(1); opacity: 0.8; }
@@ -157,4 +185,8 @@ input, textarea {
 @keyframes dotBounce {
   0%, 80%, 100% { transform: translateY(0); }
   40%           { transform: translateY(-4px); }
+}
+@keyframes googleDots {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.25); }
 }

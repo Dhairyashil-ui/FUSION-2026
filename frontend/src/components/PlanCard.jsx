@@ -82,14 +82,14 @@ export default function PlanCard({ plan, onProceedWithPlan }) {
               data_retrieval.map((item, idx) => (
                 <div key={idx} className="plan-step-pill" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '4px', padding: '8px 12px' }}>
                   <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
-                    <span className="step-tag category-tag" style={{ background: 'var(--accent-soft)', color: 'var(--accent)', border: '1px solid var(--accent-border)', padding: '2px 8px', borderRadius: 'var(--r-full)', fontSize: '0.75rem', fontWeight: 600 }}>
+                    <span className="step-tag category-tag" style={{ background: '#3b82f622', color: '#60a5fa', border: '1px solid #3b82f644', padding: '2px 6px', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 600 }}>
                       {item.category || 'Vector GIS Data'}
                     </span>
-                    <span className={`step-tag level-tag ${item.requirement_level === 'required' ? 'req-tag' : 'opt-tag'}`} style={{ background: item.requirement_level === 'required' ? 'var(--green-soft)' : 'var(--amber-soft)', color: item.requirement_level === 'required' ? 'var(--green)' : 'var(--amber)', border: `1px solid ${item.requirement_level === 'required' ? 'var(--green-border)' : 'var(--amber-border)'}`, padding: '2px 8px', borderRadius: 'var(--r-full)', fontSize: '0.7rem', fontWeight: 700 }}>
+                    <span className={`step-tag level-tag ${item.requirement_level === 'required' ? 'req-tag' : 'opt-tag'}`} style={{ background: item.requirement_level === 'required' ? '#22c55e22' : '#eab30822', color: item.requirement_level === 'required' ? '#4ade80' : '#fde047', border: `1px solid ${item.requirement_level === 'required' ? '#22c55e44' : '#eab30844'}`, padding: '2px 6px', borderRadius: '4px', fontSize: '0.7rem', fontWeight: 700 }}>
                       {(item.requirement_level || 'required').toUpperCase()}
                     </span>
                     {item.registered_source_api && (
-                      <span className="step-tag api-tag" style={{ background: 'var(--violet-soft)', color: 'var(--violet)', border: '1px solid var(--violet-border)', padding: '2px 8px', borderRadius: 'var(--r-full)', fontSize: '0.7rem' }}>
+                      <span className="step-tag api-tag" style={{ background: '#8b5cf622', color: '#c084fc', border: '1px solid #8b5cf644', padding: '2px 6px', borderRadius: '4px', fontSize: '0.7rem' }}>
                         API: {item.registered_source_api}
                       </span>
                     )}
@@ -97,7 +97,7 @@ export default function PlanCard({ plan, onProceedWithPlan }) {
                   <div className="step-desc" style={{ fontSize: '0.85rem' }}>
                     <strong>{item.dataset_name || item.dataset_id}</strong> — {item.purpose}
                   </div>
-                  <div style={{ fontSize: '0.75rem', opacity: 0.8, display: 'flex', gap: '12px', color: 'var(--text-secondary)' }}>
+                  <div style={{ fontSize: '0.75rem', opacity: 0.7, display: 'flex', gap: '12px' }}>
                     {item.spatial_coverage && <span>Coverage: {item.spatial_coverage}</span>}
                     {item.expected_format && <span>Format: {item.expected_format}</span>}
                   </div>
@@ -163,11 +163,11 @@ export default function PlanCard({ plan, onProceedWithPlan }) {
           </div>
           <div className="section-list" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
             <div className="plan-step-pill" style={{ fontSize: '0.8rem', gap: '6px' }}>
-              <span className="step-tag" style={{ background: 'var(--green-soft)', color: 'var(--green)', border: '1px solid var(--green-border)', padding: '2px 8px', borderRadius: 'var(--r-full)' }}>CRS Validation</span>
+              <span className="step-tag" style={{ background: '#22c55e22', color: '#4ade80', border: '1px solid #22c55e44' }}>CRS Validation</span>
               <span>{plan.validation_and_fallback?.crs_validation || 'EPSG:4326 (WGS84)'}</span>
             </div>
             <div className="plan-step-pill" style={{ fontSize: '0.8rem', gap: '6px' }}>
-              <span className="step-tag" style={{ background: 'var(--accent-soft)', color: 'var(--accent)', border: '1px solid var(--accent-border)', padding: '2px 8px', borderRadius: 'var(--r-full)' }}>Data Checks</span>
+              <span className="step-tag" style={{ background: '#3b82f622', color: '#60a5fa', border: '1px solid #3b82f644' }}>Data Checks</span>
               <span>{plan.validation_and_fallback?.data_availability_checks?.join(', ') || 'Coverage & attribute completeness verified'}</span>
             </div>
           </div>

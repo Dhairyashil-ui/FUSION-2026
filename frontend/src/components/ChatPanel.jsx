@@ -73,7 +73,12 @@ export default function ChatPanel({
       {/* Chat Header */}
       <div className="chat-header">
         <div className="chat-header-title-group">
-          <div className="chat-status-dot" />
+          <div className="google-header-dots" title="Google AI Identity System">
+            <span className="g-dot blue" />
+            <span className="g-dot red" />
+            <span className="g-dot yellow" />
+            <span className="g-dot green" />
+          </div>
           <div>
             <h2 className="chat-title">MINI GRIID Intelligence</h2>
             <p className="chat-subtitle">Query Understanding & Spatial Analytics</p>

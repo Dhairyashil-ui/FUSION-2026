@@ -592,7 +592,13 @@ export default function App() {
           {/* Floating Glassmorphism Brand HUD */}
           <div className="floating-brand-hud">
             <div className="brand-badge-3d">
-              <Compass size={18} className="brand-compass-icon" />
+              <div className="google-color-dots" title="Google-Grade Spatial AI Engine">
+                <span className="g-dot blue" />
+                <span className="g-dot red" />
+                <span className="g-dot yellow" />
+                <span className="g-dot green" />
+              </div>
+              <Compass size={17} className="brand-compass-icon" />
               <div className="brand-text">
                 <span className="brand-name">MINI GRIID</span>
                 <span className="brand-sub">SPATIAL 3D</span>
