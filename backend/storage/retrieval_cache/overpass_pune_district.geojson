@@ -1,0 +1,15 @@
+{
+  "type": "FeatureCollection",
+  "features": [],
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:EPSG:4326"
+    }
+  },
+  "provenance": {
+    "api": "Overpass",
+    "area": "Pune district",
+    "query_type": "waterway_and_buildings"
+  }
+}

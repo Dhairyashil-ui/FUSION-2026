@@ -1,0 +1,143 @@
+{
+  "type": "FeatureCollection",
+  "generator": "Overpass API 0.7.62.4 2390de5a",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-10-09T17:11:50Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/359568534",
+      "properties": {
+        "@id": "way/359568534",
+        "addr:city": "Pune",
+        "addr:housenumber": "24K Atria",
+        "addr:postcode": "411027",
+        "addr:street": "New DP Road",
+        "building": "residential",
+        "building:levels": "15",
+        "name": "Tower 1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7868811, 18.5768326],
+          [73.7870606, 18.5767547],
+          [73.7869017, 18.5764727],
+          [73.7867422, 18.5765359],
+          [73.7868811, 18.5768326]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/798285442",
+      "properties": {
+        "@id": "way/798285442",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7834174, 18.5782115],
+          [73.7836981, 18.5781971],
+          [73.7837133, 18.5777944],
+          [73.7834402, 18.5777801],
+          [73.7834174, 18.5782115]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1461750046",
+      "properties": {
+        "@id": "way/1461750046",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7841672, 18.5791238],
+          [73.7841737, 18.5787615],
+          [73.7844233, 18.5787846],
+          [73.7844136, 18.5791507],
+          [73.7841672, 18.5791238]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1461750294",
+      "properties": {
+        "@id": "way/1461750294",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7838185, 18.5786711],
+          [73.7838235, 18.5783276],
+          [73.7840601, 18.5783381],
+          [73.7840576, 18.5787073],
+          [73.7838185, 18.5786711]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1461750368",
+      "properties": {
+        "@id": "way/1461750368",
+        "building": "yes",
+        "layer": "1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [73.7845281, 18.5795940],
+          [73.7845469, 18.5792405],
+          [73.7847885, 18.5792520],
+          [73.7847563, 18.5796242],
+          [73.7845281, 18.5795940]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "relation/13470108",
+      "properties": {
+        "@id": "relation/13470108",
+        "generator:method": "photovoltaic",
+        "generator:output:electricity": "yes",
+        "generator:source": "solar",
+        "generator:type": "solar_photovoltaic_panel",
+        "power": "generator",
+        "type": "multipolygon",
+        "geometry_note": "Point is the relation centre; Overpass output had bounds only (no member geometry)",
+        "bounds": [73.8627765, 18.6054827, 73.8651417, 18.6070581]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [73.8639591, 18.6062704]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "relation/13562481",
+      "properties": {
+        "@id": "relation/13562481",
+        "generator:method": "photovoltaic",
+        "generator:output:electricity": "yes",
+        "generator:source": "solar",
+        "generator:type": "solar_photovoltaic_panel",
+        "power": "generator",
+        "type": "multipolygon",
+        "geometry_note": "Point is the relation centre; Overpass output had bounds only (no member geometry)",
+        "bounds": [73.8564464, 18.5945975, 73.8602538, 18.600773]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [73.8583501, 18.5976853]
+      }
+    }
+  ]
+}

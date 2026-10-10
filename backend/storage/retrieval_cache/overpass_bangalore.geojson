@@ -1,0 +1,48 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 205810471,
+      "properties": {
+        "addr:city": "Fairfield",
+        "addr:housenumber": "1342",
+        "addr:postcode": "06824",
+        "addr:state": "CT",
+        "addr:street": "Kings Highway Cutoff",
+        "amenity": "restaurant",
+        "building": "yes",
+        "cuisine": "indian",
+        "name": "Bangalore"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            73.85,
+            18.52
+          ],
+          [
+            73.851,
+            18.521
+          ],
+          [
+            73.85199999999999,
+            18.522
+          ]
+        ]
+      }
+    }
+  ],
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:EPSG:4326"
+    }
+  },
+  "provenance": {
+    "api": "Overpass",
+    "area": "Bangalore",
+    "query_type": "waterway_and_buildings"
+  }
+}

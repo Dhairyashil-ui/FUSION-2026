@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pune Visual Detection Engine - Google 2D Map</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc;
+      height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+    }
+
+    /* Header */
+    header {
+      height: 64px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); display: flex;
+      align-items: center; justify-content: space-between; padding: 0 24px; z-index: 1000;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-icon {
+      width: 38px; height: 38px; background: linear-gradient(135deg, #ec4899, #be185d);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      color: #ffffff; box-shadow: 0 4px 14px rgba(236, 72, 153, 0.4);
+    }
+    .brand-title {
+      font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700;
+      background: linear-gradient(90deg, #fbcfe8, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .brand-subtitle { font-size: 0.75rem; color: #94a3b8; }
+    .header-actions .badge-vision {
+      background: rgba(236, 72, 153, 0.15); border: 1px solid rgba(236, 72, 153, 0.4);
+      color: #fbcfe8; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem;
+      font-weight: 600; display: flex; align-items: center; gap: 6px;
+    }
+    .badge-vision .dot { width: 6px; height: 6px; border-radius: 50%; background: #ec4899; box-shadow: 0 0 8px #ec4899; }
+
+    /* Layout */
+    .app-container { flex: 1; display: flex; position: relative; overflow: hidden; }
+    #map { flex: 1; height: 100%; width: 100%; background: #e5e3df; z-index: 1; }
+
+    /* Sidebar */
+    .sidebar {
+      position: absolute; top: 16px; left: 16px; width: 380px; max-height: calc(100% - 32px);
+      background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px;
+      padding: 20px; display: flex; flex-direction: column; gap: 16px;
+      z-index: 999; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); overflow-y: auto;
+    }
+    .sidebar-title { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+
+    /* Buttons */
+    .btn-action {
+      border: none; color: #fff; border-radius: 10px; padding: 10px 14px;
+      font-weight: 600; cursor: pointer; display: flex; align-items: center;
+      gap: 10px; transition: all 0.2s ease; width: 100%; font-size: 0.85rem;
+      text-align: left;
+    }
+    .btn-action span { flex: 1; }
+    .btn-action small { display: block; font-size: 0.7rem; font-weight: 400; opacity: 0.8; margin-top: 2px; }
+
+    .btn-dino-sam { background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
+    .btn-dino-sam:hover { box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5); transform: translateY(-1px); }
+
+    .btn-sam { background: linear-gradient(135deg, #8b5cf6, #6d28d9); box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3); }
+    .btn-sam:hover { box-shadow: 0 6px 16px rgba(139, 92, 246, 0.5); transform: translateY(-1px); }
+
+    .btn-segformer { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+    .btn-segformer:hover { box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5); transform: translateY(-1px); }
+
+    .btn-changeformer { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); }
+    .btn-changeformer:hover { box-shadow: 0 6px 16px rgba(245, 158, 11, 0.5); transform: translateY(-1px); }
+
+    .btn-clear { background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255, 255, 255, 0.2); }
+    .btn-clear:hover { background: rgba(51, 65, 85, 0.9); }
+
+    /* Status Panel */
+    .status-panel {
+      padding: 12px; border-radius: 10px; font-size: 0.8rem; display: flex; flex-direction: column; gap: 8px;
+      background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); margin-top: 4px;
+    }
+    .status-panel.hidden { display: none; }
+    .status-row { display: flex; align-items: center; gap: 8px; }
+    
+    .spinner { width: 14px; height: 14px; border: 2px solid rgba(255, 255, 255, 0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    
+    .icon-success { color: #4ade80; }
+    .icon-pending { color: #94a3b8; }
+
+    /* Custom Popup */
+    .custom-popup .leaflet-popup-content-wrapper { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); color: #f8fafc; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); }
+    .custom-popup .leaflet-popup-tip { background: rgba(15, 23, 42, 0.95); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-icon"><i data-lucide="eye"></i></div>
+      <div>
+        <div class="brand-title">Pune Visual Detection Engine</div>
+        <div class="brand-subtitle">Simulating Model Inference Workflows (DINO, SAM 2, SegFormer)</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="badge-vision"><div class="dot"></div><span>Local GPU Simulation</span></div>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <div class="sidebar">
+      <div class="sidebar-title"><i data-lucide="cpu"></i> Model Execution Pipelines</div>
+      <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">
+        Test the correct visual detection strategy for different object categories around Pune.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <!-- DINO + SAM 2 -->
+        <button id="btn-dino-sam" class="btn-action btn-dino-sam">
+          <i data-lucide="scan-line"></i>
+          <div>
+            <span>1. Unknown / Trees / Buildings</span>
+            <small>Grounding DINO (BBoxes) + SAM 2 (Masks)</small>
+          </div>
+        </button>
+
+        <!-- SAM 2 Only (Pre-existing POIs) -->
+        <button id="btn-sam" class="btn-action btn-sam">
+          <i data-lucide="crosshair"></i>
+          <div>
+            <span>2. Hospitals / POIs</span>
+            <small>Point Prompt (from retrieval) → SAM 2</small>
+          </div>
+        </button>
+
+        <!-- SegFormer -->
+        <button id="btn-segformer" class="btn-action btn-segformer">
+          <i data-lucide="map"></i>
+          <div>
+            <span>3. Roads / Land-cover</span>
+            <small>SegFormer (Semantic Seg) → Vectorization</small>
+          </div>
+        </button>
+
+        <!-- ChangeFormer -->
+        <button id="btn-changeformer" class="btn-action btn-changeformer">
+          <i data-lucide="history"></i>
+          <div>
+            <span>4. Temporal Changes</span>
+            <small>ChangeFormer (T1 vs T2 comparison)</small>
+          </div>
+        </button>
+      </div>
+
+      <!-- Live Execution Log -->
+      <div id="status-panel" class="status-panel hidden">
+        <div style="font-size: 0.75rem; color: #cbd5e1; font-weight: 600; margin-bottom: 4px;">Inference Pipeline:</div>
+        <div id="status-steps" style="display: flex; flex-direction: column; gap: 6px;"></div>
+      </div>
+
+      <button id="btn-clear" class="btn-action btn-clear" style="margin-top: 4px;">
+        <i data-lucide="trash-2"></i><span>Clear Map Layers</span>
+      </button>
+    </div>
+
+    <div id="map"></div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    let map = null;
+    let detectionLayer = L.featureGroup();
+    let pointLayer = L.featureGroup();
+
+    // Map Init
+    function initMap() {
+      map = L.map('map', {
+        center: [18.5204, 73.8567], // Pune
+        zoom: 14,
+        layers: [
+          L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', { maxZoom: 20, attribution: '&copy; Google' })
+        ],
+        zoomControl: false
+      });
+      L.control.zoom({ position: 'bottomright' }).addTo(map);
+      detectionLayer.addTo(map);
+      pointLayer.addTo(map);
+    }
+
+    // Status UI helper
+    async function executePipeline(steps, logicCallback) {
+      const panel = document.getElementById('status-panel');
+      const stepsDiv = document.getElementById('status-steps');
+      panel.classList.remove('hidden');
+      
+      // Init UI
+      stepsDiv.innerHTML = steps.map(s => 
+        `<div class="status-row" id="step-${s.id}">
+           <i data-lucide="circle" class="icon-pending" style="width:14px;height:14px;"></i>
+           <span>${s.name}</span>
+         </div>`
+      ).join('');
+      lucide.createIcons();
+
+      // Run steps
+      for (let i = 0; i < steps.length; i++) {
+        const step = steps[i];
+        const row = document.getElementById(`step-${step.id}`);
+        
+        row.innerHTML = `<div class="spinner"></div><span style="color:#60a5fa">${step.name}</span>`;
+        await new Promise(r => setTimeout(r, step.delay)); // Mock inference time
+        
+        row.innerHTML = `<i data-lucide="check-circle-2" class="icon-success" style="width:14px;height:14px;"></i><span style="color:#e2e8f0">${step.name}</span>`;
+        lucide.createIcons();
+      }
+
+      // Final rendering
+      logicCallback();
+    }
+
+    // Pipeline 1: DINO + SAM 2 (Trees example)
+    document.getElementById('btn-dino-sam').addEventListener('click', () => {
+      detectionLayer.clearLayers(); pointLayer.clearLayers();
+      executePipeline([
+        { id: 1, name: 'Grounding DINO: Detect "Trees" bounding boxes', delay: 1000 },
+        { id: 2, name: 'SAM 2: Extract instance masks inside boxes', delay: 1200 },
+        { id: 3, name: 'EPSG:4326: Vectorize to GeoJSON polygons', delay: 500 }
+      ], () => {
+        // Mock GeoJSON
+        const polygons = {
+          "type": "FeatureCollection",
+          "features": [
+            { "type": "Feature", "properties": { "model": "Grounding DINO + SAM 2", "class": "Tree", "confidence": 0.94 }, "geometry": { "type": "Polygon", "coordinates": [[[73.855, 18.520], [73.856, 18.520], [73.856, 18.521], [73.855, 18.521], [73.855, 18.520]]] } },
+            { "type": "Feature", "properties": { "model": "Grounding DINO + SAM 2", "class": "Tree", "confidence": 0.89 }, "geometry": { "type": "Polygon", "coordinates": [[[73.857, 18.519], [73.858, 18.519], [73.858, 18.520], [73.857, 18.520], [73.857, 18.519]]] } }
+          ]
+        };
+        const l = L.geoJSON(polygons, {
+          style: { color: '#3b82f6', weight: 2, fillColor: '#2563eb', fillOpacity: 0.4 },
+          onEachFeature: (f, layer) => layer.bindPopup(`<div style="padding:4px;"><strong style="color:#3b82f6">Target: ${f.properties.class}</strong><br><small>Model: ${f.properties.model}</small><br><small>Confidence: ${f.properties.confidence}</small></div>`, {className: 'custom-popup'})
+        });
+        detectionLayer.addLayer(l);
+        map.fitBounds(l.getBounds(), { padding: [100, 100] });
+      });
+    });
+
+    // Pipeline 2: SAM 2 (Buildings / Hospitals - using Retrieval Coordinates)
+    document.getElementById('btn-sam').addEventListener('click', () => {
+      detectionLayer.clearLayers(); pointLayer.clearLayers();
+      
+      // MOCK RETRIEVAL DATA: 3 Hospital center coordinates fetched from Overpass API
+      const hospitalCoords = [
+        [18.528, 73.854], 
+        [18.529, 73.856], 
+        [18.526, 73.853]
+      ];
+      
+      // 1. Render Retrieval Points First
+      hospitalCoords.forEach(coord => {
+        L.circleMarker(coord, { radius: 5, color: '#fff', fillColor: '#ef4444', fillOpacity: 1, weight: 1 })
+          .bindPopup('Retrieved Coordinate (from OSM)')
+          .addTo(pointLayer);
+      });
+      map.setView(hospitalCoords[0], 16);
+
+      executePipeline([
+        { id: 1, name: 'Data Retrieval: Fetching POI coordinates...', delay: 800 },
+        { id: 2, name: 'Vision Engine: Passing coordinates to SAM 2 as Point Prompts...', delay: 1500 },
+        { id: 3, name: 'SAM 2: Extracting exact building boundary polygons...', delay: 800 }
+      ], () => {
+        
+        // MOCK VISION OUTPUT: Exact boundary polygons generated around the retrieved points
+        const hospitalMasks = {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature", "properties": { "model": "SAM 2 (Point Prompt)", "class": "Hospital Boundary", "confidence": 0.98 },
+              "geometry": { "type": "Polygon", "coordinates": [[[73.8535, 18.5275], [73.8545, 18.5275], [73.8545, 18.5285], [73.8535, 18.5285], [73.8535, 18.5275]]] }
+            },
+            {
+              "type": "Feature", "properties": { "model": "SAM 2 (Point Prompt)", "class": "Hospital Boundary", "confidence": 0.96 },
+              "geometry": { "type": "Polygon", "coordinates": [[[73.8555, 18.5285], [73.8565, 18.5285], [73.8562, 18.5295], [73.8552, 18.5295], [73.8555, 18.5285]]] }
+            },
+            {
+              "type": "Feature", "properties": { "model": "SAM 2 (Point Prompt)", "class": "Hospital Boundary", "confidence": 0.95 },
+              "geometry": { "type": "Polygon", "coordinates": [[[73.8525, 18.5255], [73.8535, 18.5255], [73.8535, 18.5265], [73.8525, 18.5265], [73.8525, 18.5255]]] }
+            }
+          ]
+        };
+
+        const l = L.geoJSON(hospitalMasks, {
+          style: { color: '#8b5cf6', weight: 2, fillColor: '#8b5cf6', fillOpacity: 0.4 },
+          onEachFeature: (f, layer) => layer.bindPopup(`<div style="padding:4px;"><strong style="color:#8b5cf6">${f.properties.class}</strong><br><small>Model: ${f.properties.model}</small><br><small>Confidence: ${f.properties.confidence}</small></div>`, {className: 'custom-popup'})
+        });
+        detectionLayer.addLayer(l);
+      });
+    });
+
+    // Pipeline 3: Roads (Using Retrieval Coordinates)
+    document.getElementById('btn-segformer').addEventListener('click', () => {
+      detectionLayer.clearLayers(); pointLayer.clearLayers();
+
+      // MOCK RETRIEVAL DATA: Raw road coordinates fetched from Overpass API
+      const retrievedRoadLine = {
+        "type": "LineString",
+        "coordinates": [[73.850, 18.520], [73.852, 18.522], [73.855, 18.525], [73.858, 18.524], [73.860, 18.523]]
+      };
+
+      // 1. Render Retrieval Line First
+      const rawLine = L.geoJSON(retrievedRoadLine, {
+        style: { color: '#ef4444', weight: 2, dashArray: '4,4' }
+      }).bindPopup('Retrieved Road Coordinates (from OSM)').addTo(pointLayer);
+      map.fitBounds(rawLine.getBounds(), { padding: [50, 50] });
+
+      executePipeline([
+        { id: 1, name: 'Data Retrieval: Fetching road centerlines...', delay: 800 },
+        { id: 2, name: 'Vision Engine: Using road path to mask exact road pixels...', delay: 1500 },
+        { id: 3, name: 'Vectorization: Converting pixel mask to physical boundary polygon...', delay: 800 }
+      ], () => {
+        
+        // MOCK VISION OUTPUT: Exact width/boundary polygon generated over the path
+        const roadPolygonMask = {
+          "type": "Feature", "properties": { "model": "Road Segmentation Mask", "class": "Road Boundary", "confidence": 0.92 },
+          "geometry": { 
+             "type": "Polygon", 
+             "coordinates": [[
+               [73.8495, 18.5205], [73.8515, 18.5225], [73.8545, 18.5255], [73.8580, 18.5245], [73.8605, 18.5235],
+               [73.8595, 18.5225], [73.8575, 18.5235], [73.8555, 18.5245], [73.8525, 18.5215], [73.8505, 18.5195],
+               [73.8495, 18.5205]
+             ]] 
+          }
+        };
+
+        const l = L.geoJSON(roadPolygonMask, {
+          style: { color: '#10b981', weight: 1, fillColor: '#10b981', fillOpacity: 0.6 },
+          onEachFeature: (f, layer) => layer.bindPopup(`<div style="padding:4px;"><strong style="color:#10b981">${f.properties.class}</strong><br><small>Model: ${f.properties.model}</small><br><small>Confidence: ${f.properties.confidence}</small></div>`, {className: 'custom-popup'})
+        });
+        detectionLayer.addLayer(l);
+      });
+    });
+
+    // Pipeline 4: ChangeFormer (Temporal difference)
+    document.getElementById('btn-changeformer').addEventListener('click', () => {
+      detectionLayer.clearLayers(); pointLayer.clearLayers();
+      executePipeline([
+        { id: 1, name: 'Data Retrieval: Load 2020 vs 2024 Imagery', delay: 1200 },
+        { id: 2, name: 'ChangeFormer: Bi-temporal subtraction', delay: 1800 },
+        { id: 3, name: 'EPSG:4326: Vectorize change mask', delay: 500 }
+      ], () => {
+        const changeArea = {
+          "type": "Feature", "properties": { "model": "ChangeFormer", "class": "New Construction (2020-2024)", "confidence": 0.91 },
+          "geometry": { "type": "Polygon", "coordinates": [[[73.860, 18.510], [73.865, 18.510], [73.865, 18.515], [73.860, 18.515], [73.860, 18.510]]] }
+        };
+        const l = L.geoJSON(changeArea, {
+          style: { color: '#f59e0b', weight: 2, fillColor: '#d97706', fillOpacity: 0.6 },
+          onEachFeature: (f, layer) => layer.bindPopup(`<div style="padding:4px;"><strong style="color:#f59e0b">Target: ${f.properties.class}</strong><br><small>Model: ${f.properties.model}</small><br><small>Confidence: ${f.properties.confidence}</small></div>`, {className: 'custom-popup'})
+        });
+        detectionLayer.addLayer(l);
+        map.fitBounds(l.getBounds(), { padding: [100, 100] });
+      });
+    });
+
+    document.getElementById('btn-clear').addEventListener('click', () => {
+      detectionLayer.clearLayers(); pointLayer.clearLayers();
+      document.getElementById('status-panel').classList.add('hidden');
+    });
+
+    window.addEventListener('DOMContentLoaded', initMap);
+  </script>
+</body>
+</html>

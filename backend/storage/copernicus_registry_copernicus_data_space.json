@@ -1,0 +1,6 @@
+{
+  "source_id": "Copernicus_Data_Space",
+  "status": "registry_only",
+  "message": "Copernicus API integration is explicitly excluded by specification. Use STAC_EarthSearch_Sentinel2 for API retrieval.",
+  "catalog_url": "https://dataspace.copernicus.eu/"
+}

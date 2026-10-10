@@ -1,0 +1,168 @@
+{
+  "type": "FeatureCollection",
+  "name": "Pune_District_Hospitals_OSM",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/35912401",
+      "properties": {
+        "feature_id": "node/35912401",
+        "feature_role": "target_hospital",
+        "amenity": "hospital",
+        "name": "Deenanath Mangeshkar Hospital",
+        "hospital_name": "Deenanath Mangeshkar Hospital",
+        "addr:street": "Erandwane",
+        "addr:city": "Pune",
+        "emergency": "yes",
+        "healthcare": "hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.834,
+          18.504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/35912402",
+      "properties": {
+        "feature_id": "node/35912402",
+        "feature_role": "target_hospital",
+        "amenity": "hospital",
+        "name": "Sahyadri Super Speciality Hospital",
+        "hospital_name": "Sahyadri Super Speciality Hospital",
+        "addr:street": "Deccan Gymkhana",
+        "addr:city": "Pune",
+        "emergency": "yes",
+        "healthcare": "hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8375,
+          18.518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/35912403",
+      "properties": {
+        "feature_id": "node/35912403",
+        "feature_role": "target_hospital",
+        "amenity": "hospital",
+        "name": "KEM Hospital Pune",
+        "hospital_name": "KEM Hospital Pune",
+        "addr:street": "Rasta Peth",
+        "addr:city": "Pune",
+        "emergency": "yes",
+        "healthcare": "hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.864,
+          18.521
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/35912404",
+      "properties": {
+        "feature_id": "way/35912404",
+        "feature_role": "target_hospital",
+        "amenity": "hospital",
+        "building": "hospital",
+        "name": "Sassoon General Hospital",
+        "hospital_name": "Sassoon General Hospital",
+        "addr:street": "Near Pune Railway Station",
+        "addr:city": "Pune",
+        "emergency": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.87,
+              18.528
+            ],
+            [
+              73.874,
+              18.528
+            ],
+            [
+              73.874,
+              18.532
+            ],
+            [
+              73.87,
+              18.532
+            ],
+            [
+              73.87,
+              18.528
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/35912405",
+      "properties": {
+        "feature_id": "node/35912405",
+        "feature_role": "target_hospital",
+        "amenity": "hospital",
+        "name": "Bhor Sub-District Civil Hospital",
+        "hospital_name": "Bhor Sub-District Civil Hospital",
+        "addr:street": "Bhor Highway",
+        "addr:city": "Bhor, Pune District",
+        "emergency": "yes",
+        "healthcare": "hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8,
+          18.42
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/35912406",
+      "properties": {
+        "feature_id": "node/35912406",
+        "feature_role": "target_hospital",
+        "amenity": "hospital",
+        "name": "Mulshi Rural Hospital & Trauma Center",
+        "hospital_name": "Mulshi Rural Hospital & Trauma Center",
+        "addr:street": "Paud Road",
+        "addr:city": "Mulshi, Pune District",
+        "emergency": "yes",
+        "healthcare": "hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.76,
+          18.54
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "local_asset": true,
+    "file": "pune_hospitals_osm.geojson"
+  }
+}

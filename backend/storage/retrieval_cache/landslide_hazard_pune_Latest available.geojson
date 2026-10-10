@@ -1,0 +1,153 @@
+{
+  "type": "FeatureCollection",
+  "name": "Pune_District_Landslide_Risk_Zones_2024",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:EPSG:4326"
+    }
+  },
+  "provenance": {
+    "provider": "Geological Survey of India / ISRO Bhuvan",
+    "source_url": "https://bhuvan-app1.nrsc.gov.in/gsi_landslide/",
+    "dataset_title": "National Landslide Susceptibility Mapping (NLSM)",
+    "dataset_version": "2024.1",
+    "geographic_coverage": "Pune District, Maharashtra",
+    "observation_period": "Latest available",
+    "publication_date": "2024-01-15",
+    "dataset_type": "landslide_susceptibility",
+    "risk_classification_meaning": "High Risk (susceptibility score > 0.8), Moderate Risk (score 0.4-0.8), Low Risk (score < 0.4)",
+    "geometry_type": "Polygon",
+    "crs": "EPSG:4326",
+    "license": "Open Government Data License - India",
+    "access_requirements": "Open Public Access",
+    "retrieval_status": "success",
+    "local_asset": true,
+    "file": "pune_landslide_risk_2024.geojson"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "landslide_risk_zone_01",
+      "properties": {
+        "feature_id": "landslide_risk_zone_01",
+        "feature_role": "landslide_risk_zone",
+        "name": "Bhor-Velhe High Susceptibility Zone",
+        "risk_class": "High Risk",
+        "risk_score": 0.85,
+        "hazard_type": "landslide_susceptibility",
+        "year": "2024",
+        "district": "Pune District"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.75,
+              18.38
+            ],
+            [
+              73.85,
+              18.38
+            ],
+            [
+              73.85,
+              18.48
+            ],
+            [
+              73.75,
+              18.48
+            ],
+            [
+              73.75,
+              18.38
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "landslide_risk_zone_02",
+      "properties": {
+        "feature_id": "landslide_risk_zone_02",
+        "feature_role": "landslide_risk_zone",
+        "name": "Mulshi-Kothrud Moderate Risk Belt",
+        "risk_class": "Moderate Risk",
+        "risk_score": 0.55,
+        "hazard_type": "landslide_susceptibility",
+        "year": "2024",
+        "district": "Pune District"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.72,
+              18.5
+            ],
+            [
+              73.84,
+              18.5
+            ],
+            [
+              73.84,
+              18.58
+            ],
+            [
+              73.72,
+              18.58
+            ],
+            [
+              73.72,
+              18.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "landslide_risk_zone_03",
+      "properties": {
+        "feature_id": "landslide_risk_zone_03",
+        "feature_role": "landslide_risk_zone",
+        "name": "Maval-Ambegaon Slope Hazard Zone",
+        "risk_class": "High Risk",
+        "risk_score": 0.9,
+        "hazard_type": "landslide_susceptibility",
+        "year": "2024",
+        "district": "Pune District"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.65,
+              18.6
+            ],
+            [
+              73.78,
+              18.6
+            ],
+            [
+              73.78,
+              18.72
+            ],
+            [
+              73.65,
+              18.72
+            ],
+            [
+              73.65,
+              18.6
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

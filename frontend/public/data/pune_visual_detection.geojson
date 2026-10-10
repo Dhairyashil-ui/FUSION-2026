@@ -1,0 +1,233 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "aoi_boundary_poly",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.8217,
+              18.4954
+            ],
+            [
+              73.8917,
+              18.4954
+            ],
+            [
+              73.8917,
+              18.545399999999997
+            ],
+            [
+              73.8217,
+              18.545399999999997
+            ],
+            [
+              73.8217,
+              18.4954
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "aoi_boundary_poly",
+        "feature_role": "admin_boundary",
+        "building_name": "Pune Administrative Boundary",
+        "target_class": "boundary",
+        "provenance": "OSM Nominatim API"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "vision_poly_0",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.8597,
+              18.523
+            ],
+            [
+              73.8639,
+              18.5232
+            ],
+            [
+              73.8637,
+              18.526
+            ],
+            [
+              73.8601,
+              18.5264
+            ],
+            [
+              73.8597,
+              18.523
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "vision_poly_0",
+        "feature_role": "target_building",
+        "building_name": "Target Facility / Building A",
+        "vision_detected": true,
+        "model_provenance": "SAM 2 + Grounding DINO Mask"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "vision_poly_1",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.84870000000001,
+              18.516
+            ],
+            [
+              73.8529,
+              18.516199999999998
+            ],
+            [
+              73.8527,
+              18.519
+            ],
+            [
+              73.8491,
+              18.519399999999997
+            ],
+            [
+              73.84870000000001,
+              18.516
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "vision_poly_1",
+        "feature_role": "target_building",
+        "building_name": "Target Facility / Building B",
+        "vision_detected": true,
+        "model_provenance": "SAM 2 + Grounding DINO Mask"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "vision_poly_2",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.86670000000001,
+              18.511
+            ],
+            [
+              73.8709,
+              18.5112
+            ],
+            [
+              73.8707,
+              18.514
+            ],
+            [
+              73.86710000000001,
+              18.5144
+            ],
+            [
+              73.86670000000001,
+              18.511
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "vision_poly_2",
+        "feature_role": "target_building",
+        "building_name": "Commercial Building C",
+        "vision_detected": true,
+        "model_provenance": "SAM 2 + Grounding DINO Mask"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "vision_poly_3",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.8327,
+              18.537
+            ],
+            [
+              73.8369,
+              18.5372
+            ],
+            [
+              73.8367,
+              18.54
+            ],
+            [
+              73.8331,
+              18.540399999999998
+            ],
+            [
+              73.8327,
+              18.537
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "vision_poly_3",
+        "feature_role": "target_building",
+        "building_name": "Peripheral Building D",
+        "vision_detected": true,
+        "model_provenance": "SAM 2 + Grounding DINO Mask"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "vision_poly_4",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.88270000000001,
+              18.54
+            ],
+            [
+              73.88690000000001,
+              18.5402
+            ],
+            [
+              73.8867,
+              18.543
+            ],
+            [
+              73.88310000000001,
+              18.5434
+            ],
+            [
+              73.88270000000001,
+              18.54
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "vision_poly_4",
+        "feature_role": "target_building",
+        "building_name": "External Infrastructure E",
+        "vision_detected": true,
+        "model_provenance": "SAM 2 + Grounding DINO Mask"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "FeatureCollection",
+  "features": [],
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:EPSG:4326"
+    }
+  },
+  "provenance": {
+    "provider": "Geological Survey of India / ISRO Bhuvan Hazard Registry",
+    "area": "Unknown Desert District",
+    "requested_year": "{'value': '2024', 'confidence': 0.95, 'provided_by_user': True}",
+    "dataset_type": "landslide_susceptibility",
+    "retrieval_status": "blocked_missing_data"
+  }
+}

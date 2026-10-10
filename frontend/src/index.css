@@ -1,0 +1,161 @@
+@import 'leaflet/dist/leaflet.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ═══════════════════════════════════════════════════════════
+   FUSION 2026 GeoAI — Premium White Intelligence Platform
+   Professional · Clean · Animated · Enterprise-grade
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* Surface */
+  --surface-0: #ffffff;
+  --surface-1: #f9fafb;
+  --surface-2: #f3f5f8;
+  --surface-3: #eaecf2;
+  --surface-overlay: rgba(255,255,255,0.92);
+
+  /* Borders */
+  --border-1: rgba(17,24,39,0.06);
+  --border-2: rgba(17,24,39,0.10);
+  --border-3: rgba(17,24,39,0.16);
+  --border-focus: #2563eb;
+
+  /* Typography */
+  --text-title: #0d1117;
+  --text-body: #374151;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-placeholder: #c0c7d0;
+  --text-inverse: #ffffff;
+
+  /* Brand — single accent */
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --accent-deep: #1e3a8a;
+  --accent-soft: rgba(37,99,235,0.07);
+  --accent-mid: rgba(37,99,235,0.14);
+  --accent-border: rgba(37,99,235,0.22);
+
+  /* Status */
+  --green: #10b981;
+  --green-soft: rgba(16,185,129,0.08);
+  --green-border: rgba(16,185,129,0.20);
+  --amber: #f59e0b;
+  --amber-soft: rgba(245,158,11,0.08);
+  --amber-border: rgba(245,158,11,0.22);
+  --red: #ef4444;
+  --red-soft: rgba(239,68,68,0.07);
+  --red-border: rgba(239,68,68,0.20);
+  --violet: #7c3aed;
+  --violet-soft: rgba(124,58,237,0.07);
+  --violet-border: rgba(124,58,237,0.20);
+
+  /* Elevation */
+  --e0: none;
+  --e1: 0 1px 3px rgba(17,24,39,0.06), 0 1px 2px rgba(17,24,39,0.04);
+  --e2: 0 4px 12px rgba(17,24,39,0.08), 0 1px 4px rgba(17,24,39,0.04);
+  --e3: 0 8px 24px rgba(17,24,39,0.10), 0 2px 8px rgba(17,24,39,0.05);
+  --e4: 0 16px 48px rgba(17,24,39,0.13), 0 4px 16px rgba(17,24,39,0.06);
+  --e-inset: inset 0 1px 2px rgba(17,24,39,0.05);
+
+  /* Typography */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Geometry */
+  --r-xs: 5px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 22px;
+  --r-full: 9999px;
+
+  /* Motion */
+  --spring: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  --smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t1: 120ms;
+  --t2: 200ms;
+  --t3: 320ms;
+  --t4: 480ms;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root {
+  width: 100vw; height: 100vh; overflow: hidden;
+  background: var(--surface-1);
+  color: var(--text-body);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit; cursor: pointer;
+  border: none; background: transparent; outline: none;
+  transition: all var(--t2) var(--smooth);
+}
+input, textarea {
+  font-family: inherit; outline: none;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-3);
+  border-radius: var(--r-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-border);
+}
+
+/* ═══ ANIMATIONS ═══════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.9); }
+}
+@keyframes ripple {
+  0%   { transform: scale(1); opacity: 0.8; }
+  80%  { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+@keyframes progressSlide {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40%           { transform: translateY(-4px); }
+}

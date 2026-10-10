@@ -1,0 +1,128 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "aoi_boundary_poly",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.8217,
+              18.4954
+            ],
+            [
+              73.8917,
+              18.4954
+            ],
+            [
+              73.8917,
+              18.545399999999997
+            ],
+            [
+              73.8217,
+              18.545399999999997
+            ],
+            [
+              73.8217,
+              18.4954
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "aoi_boundary_poly",
+        "feature_role": "admin_boundary",
+        "building_name": "Pune Administrative Boundary",
+        "target_class": "boundary",
+        "provenance": "OSM Nominatim API"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "retrieval_pt_0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8617,
+          18.5244
+        ]
+      },
+      "properties": {
+        "feature_id": "retrieval_pt_0",
+        "feature_role": "retrieval_point",
+        "building_name": "Target Facility / Building A",
+        "coord_label": "Pointed Location: Target Facility / Building A"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "retrieval_pt_1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8507,
+          18.5174
+        ]
+      },
+      "properties": {
+        "feature_id": "retrieval_pt_1",
+        "feature_role": "retrieval_point",
+        "building_name": "Target Facility / Building B",
+        "coord_label": "Pointed Location: Target Facility / Building B"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "retrieval_pt_2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8687,
+          18.5124
+        ]
+      },
+      "properties": {
+        "feature_id": "retrieval_pt_2",
+        "feature_role": "retrieval_point",
+        "building_name": "Commercial Building C",
+        "coord_label": "Pointed Location: Commercial Building C"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "retrieval_pt_3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8347,
+          18.5384
+        ]
+      },
+      "properties": {
+        "feature_id": "retrieval_pt_3",
+        "feature_role": "retrieval_point",
+        "building_name": "Peripheral Building D",
+        "coord_label": "Pointed Location: Peripheral Building D"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "retrieval_pt_4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.88470000000001,
+          18.5414
+        ]
+      },
+      "properties": {
+        "feature_id": "retrieval_pt_4",
+        "feature_role": "retrieval_point",
+        "building_name": "External Infrastructure E",
+        "coord_label": "Pointed Location: External Infrastructure E"
+      }
+    }
+  ]
+}

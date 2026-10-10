@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "waterway": "drain",
+        "name": "Pune Main Open Drainage Channel",
+        "width_m": 4.5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.84,
+            18.51
+          ],
+          [
+            73.86,
+            18.53
+          ],
+          [
+            73.88,
+            18.55
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building": "commercial",
+        "name": "Pune Commercial Building A",
+        "levels": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.845,
+              18.515
+            ],
+            [
+              73.847,
+              18.515
+            ],
+            [
+              73.847,
+              18.517
+            ],
+            [
+              73.845,
+              18.517
+            ],
+            [
+              73.845,
+              18.515
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

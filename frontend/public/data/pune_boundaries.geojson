@@ -1,0 +1,43 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "aoi_boundary_poly",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.8217,
+              18.4954
+            ],
+            [
+              73.8917,
+              18.4954
+            ],
+            [
+              73.8917,
+              18.545399999999997
+            ],
+            [
+              73.8217,
+              18.545399999999997
+            ],
+            [
+              73.8217,
+              18.4954
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "aoi_boundary_poly",
+        "feature_role": "admin_boundary",
+        "building_name": "Pune Administrative Boundary",
+        "target_class": "boundary",
+        "provenance": "OSM Nominatim API"
+      }
+    }
+  ]
+}

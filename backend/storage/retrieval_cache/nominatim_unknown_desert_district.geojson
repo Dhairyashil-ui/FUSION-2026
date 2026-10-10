@@ -1,0 +1,16 @@
+{
+  "type": "FeatureCollection",
+  "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+  "features": [],
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:EPSG:4326"
+    }
+  },
+  "provenance": {
+    "url": "https://nominatim.openstreetmap.org/search?q=Unknown%20Desert%20District&format=geojson&polygon_geojson=1&limit=1",
+    "query": "Unknown Desert District",
+    "connector": "NominatimBoundaryConnector"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "waterway": "drain",
+        "name": "Downtown Manhattan Main Open Drainage Channel",
+        "width_m": 4.5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.84,
+            18.51
+          ],
+          [
+            73.86,
+            18.53
+          ],
+          [
+            73.88,
+            18.55
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building": "commercial",
+        "name": "Downtown Manhattan Commercial Building A",
+        "levels": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.845,
+              18.515
+            ],
+            [
+              73.847,
+              18.515
+            ],
+            [
+              73.847,
+              18.517
+            ],
+            [
+              73.845,
+              18.517
+            ],
+            [
+              73.845,
+              18.515
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:EPSG:4326"
+    }
+  },
+  "provenance": {
+    "fallback": true,
+    "error": "HTTP Error 504: Gateway Timeout",
+    "area": "Downtown Manhattan"
+  }
+}

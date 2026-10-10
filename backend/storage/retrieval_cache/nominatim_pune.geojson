@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 419116252,
+        "osm_type": "node",
+        "osm_id": 16174445,
+        "place_rank": 16,
+        "category": "place",
+        "type": "city",
+        "importance": 0.6399667627949028,
+        "addresstype": "city",
+        "name": "Pune",
+        "display_name": "Pune, Pune City Subdistrict, Pune, Maharashtra, 411001, India"
+      },
+      "bbox": [
+        73.6945071,
+        18.3613738,
+        74.0145071,
+        18.6813738
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8545071,
+          18.5213738
+        ]
+      }
+    }
+  ],
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:EPSG:4326"
+    }
+  },
+  "provenance": {
+    "url": "https://nominatim.openstreetmap.org/search?q=Pune&format=geojson&polygon_geojson=1&limit=1",
+    "query": "Pune",
+    "connector": "NominatimBoundaryConnector"
+  }
+}
