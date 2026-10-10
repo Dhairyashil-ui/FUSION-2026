@@ -19,9 +19,11 @@ def get_database_url() -> Optional[str]:
     url = settings.DATABASE_URL
     if not url:
         return "sqlite:///./fusion_2026.db"
-    # SQLAlchemy 2.0+ requires 'postgresql://' instead of legacy 'postgres://'
+    # Normalize postgres/postgresql prefix to postgresql+psycopg2:// driver explicitly
     if url.startswith("postgres://"):
-        url = url.replace("postgres://", "postgresql://", 1)
+        url = url.replace("postgres://", "postgresql+psycopg2://", 1)
+    elif url.startswith("postgresql://") and not url.startswith("postgresql+"):
+        url = url.replace("postgresql://", "postgresql+psycopg2://", 1)
     return url
 
 
