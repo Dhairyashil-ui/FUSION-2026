@@ -20,7 +20,12 @@ import math
 from typing import Optional, List, Dict, Any
 from abc import ABC, abstractmethod
 
-import torch
+try:
+    import torch
+    HAS_TORCH = True
+except ImportError:
+    torch = None
+    HAS_TORCH = False
 
 from app.schemas.planner_schema import QueryPlan, VisualSearchStep
 from app.schemas.vision_schema import (
@@ -45,7 +50,7 @@ class BaseModelAdapter(ABC):
     def __init__(self, model_id: str):
         self.model_id = model_id
         self.model_info: Optional[ModelRegistryEntry] = get_registered_model(model_id)
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = "cuda" if HAS_TORCH and torch.cuda.is_available() else "cpu"
         self._is_loaded = False
         self._model = None
 
