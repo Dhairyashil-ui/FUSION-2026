@@ -29,6 +29,20 @@ except ImportError:
     def to_4326(x, y):
         return (x / 111320.0, y / 111320.0)
 
+from shapely.geometry import shape, mapping, Polygon, MultiPolygon, LineString, Point
+from shapely.ops import transform, unary_union
+from shapely.validation import make_valid
+
+from app.schemas.planner_schema import QueryPlan, SpatialAnalysisStep
+from app.schemas.retrieval_schema import RetrievalExecutionResult, RetrievedAssetMetadata
+from app.schemas.vision_schema import VisualDetectionResult, DetectionResultItem
+from app.schemas.spatial_schema import (
+    SpatialEngineResult,
+    SpatialAnalysisLayerResult,
+    FeatureMatchItem,
+)
+from app.services.feature_matcher import feature_matcher, FeatureMatcher
+
 
 class SpatialEngine:
     """Reusable spatial analysis & GIS processing engine."""
