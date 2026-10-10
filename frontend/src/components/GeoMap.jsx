@@ -402,6 +402,12 @@ export default function GeoMap({
     const centerLat = (mapCenter && Number.isFinite(mapCenter[0])) ? mapCenter[0] : (aoi?.center && Number.isFinite(aoi.center[0]) ? aoi.center[0] : 18.5204)
     const centerLng = (mapCenter && Number.isFinite(mapCenter[1])) ? mapCenter[1] : (aoi?.center && Number.isFinite(aoi.center[1]) ? aoi.center[1] : 73.8567)
 
+    if (!MAPBOX_TOKEN) {
+      console.warn('Mapbox access token is not set. Switching to 2D Satellite map mode.')
+      setActiveBasemap('googleHybrid2D')
+      return
+    }
+
     mapboxgl.accessToken = MAPBOX_TOKEN
 
     if (!mapboxInstanceRef.current) {
