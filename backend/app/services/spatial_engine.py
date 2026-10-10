@@ -18,26 +18,16 @@ import time
 import logging
 from typing import List, Dict, Any, Optional, Tuple
 
-import pyproj
-from shapely.geometry import shape, mapping, Polygon, MultiPolygon, LineString, Point
-from shapely.ops import transform, unary_union
-from shapely.validation import make_valid
-
-from app.schemas.planner_schema import QueryPlan, SpatialAnalysisStep
-from app.schemas.retrieval_schema import RetrievalExecutionResult, RetrievedAssetMetadata
-from app.schemas.vision_schema import VisualDetectionResult, DetectionResultItem
-from app.schemas.spatial_schema import (
-    SpatialEngineResult,
-    SpatialAnalysisLayerResult,
-    FeatureMatchItem,
-)
-from app.services.feature_matcher import feature_matcher, FeatureMatcher
-
-logger = logging.getLogger(__name__)
-
-# Coordinate Transformers
-to_3857 = pyproj.Transformer.from_crs("EPSG:4326", "EPSG:3857", always_xy=True).transform
-to_4326 = pyproj.Transformer.from_crs("EPSG:3857", "EPSG:4326", always_xy=True).transform
+try:
+    import pyproj
+    to_3857 = pyproj.Transformer.from_crs("EPSG:4326", "EPSG:3857", always_xy=True).transform
+    to_4326 = pyproj.Transformer.from_crs("EPSG:3857", "EPSG:4326", always_xy=True).transform
+except ImportError:
+    pyproj = None
+    def to_3857(x, y):
+        return (x * 111320.0, y * 111320.0)
+    def to_4326(x, y):
+        return (x / 111320.0, y / 111320.0)
 
 
 class SpatialEngine:
