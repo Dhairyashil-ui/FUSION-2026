@@ -119,7 +119,7 @@ export default function GeoMap({
   const geoJsonLayerRef = useRef(null)
   const drawingBoxRef = useRef({ isDrawing: false, startLatLng: null })
 
-  const [activeBasemap, setActiveBasemap] = useState('googleHybrid2D')
+  const [activeBasemap, setActiveBasemap] = useState('mapboxSatellite')
   const [layersMenuOpen, setLayersMenuOpen] = useState(false)
   const [isDrawingAoi, setIsDrawingAoi] = useState(false)
   const [cursorCoords, setCursorCoords] = useState(null)
