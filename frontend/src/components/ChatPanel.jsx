@@ -75,8 +75,8 @@ export default function ChatPanel({
         <div className="chat-header-title-group">
           <div className="chat-status-dot" />
           <div>
-            <h2 className="chat-title">GeoAI Intelligence</h2>
-            <p className="chat-subtitle">Query Understanding & Information Collection</p>
+            <h2 className="chat-title">MINI GRIID Intelligence</h2>
+            <p className="chat-subtitle">Query Understanding & Spatial Analytics</p>
           </div>
         </div>
 
@@ -115,7 +115,7 @@ export default function ChatPanel({
             <div className="empty-icon-wrap">
               <Globe size={28} className="empty-icon" />
             </div>
-            <h3 className="empty-title">Natural Language GeoAI Assistant</h3>
+            <h3 className="empty-title">MINI GRIID Spatial Assistant</h3>
             <p className="empty-description">
               Describe your geospatial query specifying what to find, area of interest, target entities, spatial measurements, or required output formats.
             </p>

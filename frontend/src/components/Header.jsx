@@ -7,14 +7,14 @@ export default function Header({ isConnected }) {
       <div className="header-left">
         <div className="brand-logo">
           <Compass size={18} className="brand-icon" />
-          <span className="brand-title">FUSION 2026</span>
-          <span className="brand-tag">GeoAI</span>
+          <span className="brand-title">MINI GRIID</span>
+          <span className="brand-tag">SPATIAL AI</span>
         </div>
       </div>
 
       <div className="header-center">
         <span className="phase-pill">
-          Geospatial Intelligence Platform
+          Spatial Intelligence Platform
         </span>
       </div>
 

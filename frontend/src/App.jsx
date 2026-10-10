@@ -594,8 +594,8 @@ export default function App() {
             <div className="brand-badge-3d">
               <Compass size={18} className="brand-compass-icon" />
               <div className="brand-text">
-                <span className="brand-name">GEOAI-05</span>
-                <span className="brand-sub">ENGINE 3D</span>
+                <span className="brand-name">MINI GRIID</span>
+                <span className="brand-sub">SPATIAL 3D</span>
               </div>
             </div>
 

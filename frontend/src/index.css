@@ -2,72 +2,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ═══════════════════════════════════════════════════════════
-   FUSION 2026 GeoAI — Premium White Intelligence Platform
-   Professional · Clean · Animated · Enterprise-grade
+   MINI GRIID — Google-Grade Ultra Premium White Design System
+   Google Material You Light · High Contrast · Crisp Typography
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* Surface */
+  /* Google Surface Tokens */
   --surface-0: #ffffff;
-  --surface-1: #f9fafb;
-  --surface-2: #f3f5f8;
-  --surface-3: #eaecf2;
-  --surface-overlay: rgba(255,255,255,0.92);
+  --surface-1: #f8f9fa;
+  --surface-2: #f1f3f4;
+  --surface-3: #e8eaed;
+  --surface-overlay: rgba(255, 255, 255, 0.94);
 
-  /* Borders */
-  --border-1: rgba(17,24,39,0.06);
-  --border-2: rgba(17,24,39,0.10);
-  --border-3: rgba(17,24,39,0.16);
-  --border-focus: #2563eb;
+  /* Google Borders */
+  --border-1: rgba(32, 33, 36, 0.08);
+  --border-2: #dadce0;
+  --border-3: #bdc1c6;
+  --border-focus: #1a73e8;
 
-  /* Typography */
-  --text-title: #0d1117;
-  --text-body: #374151;
-  --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
-  --text-placeholder: #c0c7d0;
+  /* Google Typography Colors */
+  --text-title: #202124;
+  --text-body: #3c4043;
+  --text-secondary: #5f6368;
+  --text-muted: #80868b;
+  --text-placeholder: #9aa0a6;
   --text-inverse: #ffffff;
 
-  /* Brand — single accent */
-  --accent: #2563eb;
-  --accent-dark: #1d4ed8;
-  --accent-deep: #1e3a8a;
-  --accent-soft: rgba(37,99,235,0.07);
-  --accent-mid: rgba(37,99,235,0.14);
-  --accent-border: rgba(37,99,235,0.22);
+  /* Google Signature Accent Blue */
+  --accent: #1a73e8;
+  --accent-dark: #1557b0;
+  --accent-deep: #174ea6;
+  --accent-soft: #e8f0fe;
+  --accent-mid: #d2e3fc;
+  --accent-border: #c6dafc;
 
-  /* Status */
-  --green: #10b981;
-  --green-soft: rgba(16,185,129,0.08);
-  --green-border: rgba(16,185,129,0.20);
-  --amber: #f59e0b;
-  --amber-soft: rgba(245,158,11,0.08);
-  --amber-border: rgba(245,158,11,0.22);
-  --red: #ef4444;
-  --red-soft: rgba(239,68,68,0.07);
-  --red-border: rgba(239,68,68,0.20);
-  --violet: #7c3aed;
-  --violet-soft: rgba(124,58,237,0.07);
-  --violet-border: rgba(124,58,237,0.20);
+  /* Google Palette Accents */
+  --green: #1e8e3e;
+  --green-soft: #e6f4ea;
+  --green-border: #ceead6;
+  --amber: #f9ab00;
+  --amber-soft: #fef7e0;
+  --amber-border: #feefc3;
+  --red: #d93025;
+  --red-soft: #fce8e6;
+  --red-border: #fad2cf;
+  --violet: #7047eb;
+  --violet-soft: #f3e8ff;
+  --violet-border: #e9d5ff;
 
-  /* Elevation */
+  /* Google Material Elevation Shadows */
   --e0: none;
-  --e1: 0 1px 3px rgba(17,24,39,0.06), 0 1px 2px rgba(17,24,39,0.04);
-  --e2: 0 4px 12px rgba(17,24,39,0.08), 0 1px 4px rgba(17,24,39,0.04);
-  --e3: 0 8px 24px rgba(17,24,39,0.10), 0 2px 8px rgba(17,24,39,0.05);
-  --e4: 0 16px 48px rgba(17,24,39,0.13), 0 4px 16px rgba(17,24,39,0.06);
-  --e-inset: inset 0 1px 2px rgba(17,24,39,0.05);
+  --e1: 0 1px 2px 0 rgba(60,64,67,0.12), 0 1px 3px 1px rgba(60,64,67,0.06);
+  --e2: 0 1px 3px 0 rgba(60,64,67,0.15), 0 4px 8px 3px rgba(60,64,67,0.10);
+  --e3: 0 4px 12px 0 rgba(60,64,67,0.15), 0 8px 24px 4px rgba(60,64,67,0.10);
+  --e4: 0 8px 28px 0 rgba(60,64,67,0.18), 0 16px 40px 6px rgba(60,64,67,0.12);
+  --e-inset: inset 0 1px 2px rgba(32,33,36,0.06);
 
-  /* Typography */
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Google Typography & Geometry */
+  --font: 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Geometry */
-  --r-xs: 5px;
-  --r-sm: 8px;
-  --r-md: 12px;
-  --r-lg: 16px;
-  --r-xl: 22px;
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
   --r-full: 9999px;
 
   /* Motion */
