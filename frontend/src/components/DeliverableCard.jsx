@@ -94,7 +94,7 @@ export default function DeliverableCard({ deliverable, selectedFeatureId, onSele
           <span className="metric-label">Target Features</span>
         </div>
         <div className="metric-box">
-          <span className="metric-value" style={{ color: exposedCount > 0 ? '#ef4444' : 'inherit' }}>
+          <span className="metric-value" style={{ color: exposedCount > 0 ? 'var(--red)' : 'inherit' }}>
             {exposedCount > 0 ? exposedCount : matchedCount}
           </span>
           <span className="metric-label">{exposedCount > 0 ? 'Exposed in Risk Zones' : 'AI Matches'}</span>
@@ -113,7 +113,7 @@ export default function DeliverableCard({ deliverable, selectedFeatureId, onSele
         </div>
 
         {targetFeatures.length === 0 ? (
-          <div className="empty-buildings-notice" style={{ padding: '8px 12px', fontSize: '0.8rem', color: '#94a3b8', fontStyle: 'italic' }}>
+          <div className="empty-buildings-notice" style={{ padding: '8px 12px', fontSize: '0.8rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
             No target features found matching analytical criteria.
           </div>
         ) : (
@@ -140,14 +140,14 @@ export default function DeliverableCard({ deliverable, selectedFeatureId, onSele
                   <div className="bldg-info-left">
                     <div className="bldg-name-row">
                       <span className="bldg-name">{name}</span>
-                      <span className={`bldg-type-tag ${isExposedInside ? 'danger' : isExposedTouching ? 'warning' : ''}`} style={isExposedInside ? { background: '#fee2e2', color: '#991b1b', border: '1px solid #f87171' } : isExposedTouching ? { background: '#ffedd5', color: '#9a3412', border: '1px solid #fb923c' } : {}}>
+                      <span className={`bldg-type-tag ${isExposedInside ? 'danger' : isExposedTouching ? 'warning' : ''}`} style={isExposedInside ? { background: 'var(--red-soft)', color: 'var(--red)', border: '1px solid var(--red-border)' } : isExposedTouching ? { background: 'var(--amber-soft)', color: 'var(--amber)', border: '1px solid var(--amber-border)' } : {}}>
                         {classTag}
                       </span>
                     </div>
                     <div className="bldg-meta-row">
                       <span className="bldg-id">ID: {featId}</span>
                       {riskClass && riskClass !== 'None' && (
-                        <span className="bldg-dist" style={{ color: '#dc2626', fontWeight: 600 }}>
+                        <span className="bldg-dist" style={{ color: 'var(--red)', fontWeight: 600 }}>
                           Risk: <strong>{riskClass}</strong>
                         </span>
                       )}
