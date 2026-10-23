@@ -419,7 +419,7 @@
     "item_count": 1,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\nominatim_pune.geojson",
     "status": "success",
-    "execution_time_ms": 82.02242851257324,
+    "execution_time_ms": 131.56461715698242,
     "provenance": {
       "url": "https://nominatim.openstreetmap.org/search?q=Pune&format=geojson&polygon_geojson=1&limit=1",
       "query": "Pune",
@@ -435,23 +435,21 @@
     "format": "GeoJSON",
     "crs": "EPSG:4326",
     "spatial_bounds": {
-      "min_lon": 73.7,
-      "min_lat": 18.4,
-      "max_lon": 73.95,
-      "max_lat": 18.65
+      "min_lon": 73.746217,
+      "min_lat": 18.522371,
+      "max_lon": 73.77525,
+      "max_lat": 18.643638
     },
-    "item_count": 0,
+    "item_count": 2,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\overpass_pune.geojson",
     "status": "success",
-    "execution_time_ms": 18686.140537261963,
+    "execution_time_ms": 20676.836490631104,
     "provenance": {
-      "api": "Overpass",
+      "api": "overpass-api.de",
       "area": "Pune",
-      "query_type": "waterway_and_buildings"
+      "query": "building"
     },
-    "warnings": [
-      "GeoJSON asset 'overpass_pune' contains 0 features."
-    ]
+    "warnings": []
   },
   "209409499af90863": {
     "asset_id": "overpass_pune",
@@ -461,15 +459,15 @@
     "format": "GeoJSON",
     "crs": "EPSG:4326",
     "spatial_bounds": {
-      "min_lon": 73.364182,
-      "min_lat": 17.919186,
-      "max_lon": 75.123261,
-      "max_lat": 19.368103
+      "min_lon": 73.746217,
+      "min_lat": 18.522371,
+      "max_lon": 73.77525,
+      "max_lat": 18.643638
     },
-    "item_count": 346004,
+    "item_count": 2,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\overpass_pune.geojson",
     "status": "success",
-    "execution_time_ms": 55438.73476982117,
+    "execution_time_ms": 10807.624340057373,
     "provenance": {
       "api": "overpass-api.de",
       "area": "Pune",
@@ -564,7 +562,7 @@
     "item_count": 1,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\nominatim_mumbai.geojson",
     "status": "success",
-    "execution_time_ms": 80.37209510803223,
+    "execution_time_ms": 263.14377784729004,
     "provenance": {
       "url": "https://nominatim.openstreetmap.org/search?q=Mumbai&format=geojson&polygon_geojson=1&limit=1",
       "query": "Mumbai",
@@ -588,7 +586,7 @@
     "item_count": 3,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\sentinel2_stac_mumbai.geojson",
     "status": "success",
-    "execution_time_ms": 1285.0251197814941,
+    "execution_time_ms": 365.2844429016113,
     "provenance": {
       "stac_endpoint": "https://earth-search.aws.element84.com/v1/search",
       "collection": "sentinel-2-l2a"
@@ -611,7 +609,7 @@
     "item_count": 1,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\nominatim_bangalore.geojson",
     "status": "success",
-    "execution_time_ms": 1369.6908950805664,
+    "execution_time_ms": 1272.1874713897705,
     "provenance": {
       "url": "https://nominatim.openstreetmap.org/search?q=Bangalore&format=geojson&polygon_geojson=1&limit=1",
       "query": "Bangalore",
@@ -627,19 +625,19 @@
     "format": "GeoJSON",
     "crs": "EPSG:4326",
     "spatial_bounds": {
-      "min_lon": 73.7,
-      "min_lat": 18.4,
-      "max_lon": 73.95,
-      "max_lat": 18.65
+      "min_lon": 72.825878,
+      "min_lat": 19.128623,
+      "max_lon": 72.825878,
+      "max_lat": 19.128623
     },
     "item_count": 1,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\overpass_bangalore.geojson",
     "status": "success",
-    "execution_time_ms": 2429.826498031616,
+    "execution_time_ms": 11239.596128463745,
     "provenance": {
-      "api": "Overpass",
+      "api": "overpass-api.de",
       "area": "Bangalore",
-      "query_type": "waterway_and_buildings"
+      "query": "building"
     },
     "warnings": []
   },
@@ -659,7 +657,7 @@
     "item_count": 3,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\sentinel2_stac_bangalore.geojson",
     "status": "success",
-    "execution_time_ms": 1354.579210281372,
+    "execution_time_ms": 766.5538787841797,
     "provenance": {
       "stac_endpoint": "https://earth-search.aws.element84.com/v1/search",
       "collection": "sentinel-2-l2a"
@@ -1510,15 +1508,15 @@
     "format": "GeoJSON",
     "crs": "EPSG:4326",
     "spatial_bounds": {
-      "min_lon": 73.364182,
-      "min_lat": 17.919186,
-      "max_lon": 75.123261,
-      "max_lat": 19.368103
+      "min_lon": 73.746217,
+      "min_lat": 18.522371,
+      "max_lon": 73.77525,
+      "max_lat": 18.643638
     },
-    "item_count": 346004,
+    "item_count": 2,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\overpass_pune.geojson",
     "status": "success",
-    "execution_time_ms": 38832.242012023926,
+    "execution_time_ms": 20662.886142730713,
     "provenance": {
       "api": "overpass-api.de",
       "area": "Pune",
@@ -1590,7 +1588,7 @@
     "item_count": 3,
     "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\sentinel2_stac_pune.geojson",
     "status": "success",
-    "execution_time_ms": 1324.7921466827393,
+    "execution_time_ms": 1343.1487083435059,
     "provenance": {
       "stac_endpoint": "https://earth-search.aws.element84.com/v1/search",
       "collection": "sentinel-2-l2a"
@@ -2007,5 +2005,171 @@
     "warnings": [
       "GeoJSON asset 'overpass_pune' contains 0 features."
     ]
+  },
+  "05bfa34dab694209": {
+    "asset_id": "overpass_pune",
+    "source_id": "OSM_Overpass_API",
+    "category": "Vector GIS Data",
+    "provider": "OpenStreetMap",
+    "format": "GeoJSON",
+    "crs": "EPSG:4326",
+    "spatial_bounds": {
+      "min_lon": 73.746217,
+      "min_lat": 18.522371,
+      "max_lon": 73.77525,
+      "max_lat": 18.643638
+    },
+    "item_count": 2,
+    "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\overpass_pune.geojson",
+    "status": "success",
+    "execution_time_ms": 20699.34368133545,
+    "provenance": {
+      "api": "overpass-api.de",
+      "area": "Pune",
+      "query": "building"
+    },
+    "warnings": []
+  },
+  "fbe620aa589cec90": {
+    "asset_id": "overpass_pune",
+    "source_id": "OSM_Overpass_API",
+    "category": "Vector GIS Data",
+    "provider": "OpenStreetMap",
+    "format": "GeoJSON",
+    "crs": "EPSG:4326",
+    "spatial_bounds": {
+      "min_lon": 73.737724,
+      "min_lat": 18.459091,
+      "max_lon": 73.95158,
+      "max_lat": 18.631825
+    },
+    "item_count": 18,
+    "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\overpass_pune.geojson",
+    "status": "success",
+    "execution_time_ms": 20667.208433151245,
+    "provenance": {
+      "api": "overpass-api.de",
+      "area": "Pune",
+      "query": "commercial"
+    },
+    "warnings": []
+  },
+  "64cb9506b0bcc64f": {
+    "asset_id": "sentinel2_stac_pune",
+    "source_id": "STAC_EarthSearch_Sentinel2",
+    "category": "Optical Imagery",
+    "provider": "Element84 / AWS Open Data",
+    "format": "Cloud-Optimized GeoTIFF (COG)",
+    "crs": "EPSG:4326",
+    "spatial_bounds": {
+      "min_lon": 73.7,
+      "min_lat": 18.4,
+      "max_lon": 74.0,
+      "max_lat": 18.7
+    },
+    "item_count": 3,
+    "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\sentinel2_stac_pune.geojson",
+    "status": "success",
+    "execution_time_ms": 2735.3925704956055,
+    "provenance": {
+      "stac_endpoint": "https://earth-search.aws.element84.com/v1/search",
+      "collection": "sentinel-2-l2a"
+    },
+    "warnings": []
+  },
+  "2a884c240a9a5970": {
+    "asset_id": "overpass_pune",
+    "source_id": "OSM_Overpass_API",
+    "category": "Vector GIS Data",
+    "provider": "OpenStreetMap",
+    "format": "GeoJSON",
+    "crs": "EPSG:4326",
+    "spatial_bounds": {
+      "min_lon": 73.746217,
+      "min_lat": 18.522371,
+      "max_lon": 73.77525,
+      "max_lat": 18.643638
+    },
+    "item_count": 2,
+    "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\overpass_pune.geojson",
+    "status": "success",
+    "execution_time_ms": 20641.13473892212,
+    "provenance": {
+      "api": "overpass-api.de",
+      "area": "Pune",
+      "query": "building"
+    },
+    "warnings": []
+  },
+  "61d763c6942e536c": {
+    "asset_id": "sentinel2_stac_pune",
+    "source_id": "STAC_EarthSearch_Sentinel2",
+    "category": "Optical Imagery",
+    "provider": "Element84 / AWS Open Data",
+    "format": "Cloud-Optimized GeoTIFF (COG)",
+    "crs": "EPSG:4326",
+    "spatial_bounds": {
+      "min_lon": 73.7,
+      "min_lat": 18.4,
+      "max_lon": 74.0,
+      "max_lat": 18.7
+    },
+    "item_count": 3,
+    "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\sentinel2_stac_pune.geojson",
+    "status": "success",
+    "execution_time_ms": 1226.6168594360352,
+    "provenance": {
+      "stac_endpoint": "https://earth-search.aws.element84.com/v1/search",
+      "collection": "sentinel-2-l2a"
+    },
+    "warnings": []
+  },
+  "4f3b2a6d64e932f5": {
+    "asset_id": "overpass_pune",
+    "source_id": "OSM_Overpass_API",
+    "category": "Vector GIS Data",
+    "provider": "OpenStreetMap",
+    "format": "GeoJSON",
+    "crs": "EPSG:4326",
+    "spatial_bounds": {
+      "min_lon": 73.746217,
+      "min_lat": 18.522371,
+      "max_lon": 73.77525,
+      "max_lat": 18.643638
+    },
+    "item_count": 2,
+    "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\overpass_pune.geojson",
+    "status": "success",
+    "execution_time_ms": 20595.68762779236,
+    "provenance": {
+      "api": "overpass-api.de",
+      "area": "Pune",
+      "query": "building"
+    },
+    "warnings": []
+  },
+  "b1750e901398612f": {
+    "asset_id": "overpass_pune",
+    "source_id": "OSM_Overpass_API",
+    "category": "Vector GIS Data",
+    "provider": "OpenStreetMap",
+    "format": "GeoJSON",
+    "crs": "EPSG:4326",
+    "spatial_bounds": {
+      "min_lon": 73.746217,
+      "min_lat": 18.522371,
+      "max_lon": 73.77525,
+      "max_lat": 18.643638
+    },
+    "item_count": 2,
+    "file_path": "D:\\fusion 2026\\backend\\storage\\retrieval_cache\\overpass_pune.geojson",
+    "status": "success",
+    "execution_time_ms": 20626.253366470337,
+    "provenance": {
+      "api": "overpass-api.de",
+      "area": "Pune",
+      "query": "building"
+    },
+    "warnings": []
   }
 }

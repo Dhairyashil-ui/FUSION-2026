@@ -1,6 +1,41 @@
 {
   "type": "FeatureCollection",
-  "features": [],
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/248277550",
+      "properties": {
+        "feature_id": "node/248277550",
+        "name": "BUILDING",
+        "building": "yes",
+        "type": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7752499,
+          18.5223714
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/249464209",
+      "properties": {
+        "feature_id": "node/249464209",
+        "name": "building",
+        "building": "yes",
+        "type": "apartments"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7462172,
+          18.6436375
+        ]
+      }
+    }
+  ],
   "crs": {
     "type": "name",
     "properties": {
@@ -10,6 +45,6 @@
   "provenance": {
     "api": "overpass-api.de",
     "area": "Pune",
-    "query": "buildings"
+    "query": "building"
   }
 }

@@ -21,8 +21,8 @@ export function isQualifyingTargetFeature(f) {
     return false
   }
 
-  if (role === 'target_building' || role === 'solar_panel') return true
-  if (props.building || props.target_class === 'building' || props.target_class === 'commercial buildings') return true
+  if (role === 'target_building' || role === 'solar_panel' || role === 'target_hospital') return true
+  if (props.building || props.target_class?.includes('building') || props.target_class?.includes('commercial') || props.target_class?.includes('office')) return true
   if (props.spatial_status === 'FILTERED_WITHIN_PROXIMITY' || props.spatial_classification) return true
 
   return role !== 'reference_line'
@@ -151,8 +151,9 @@ export default function DeliverableCard({ deliverable, selectedFeatureId, onSele
                           Risk: <strong>{riskClass}</strong>
                         </span>
                       )}
-                      <span className="bldg-dist">
-                        Geom Dist: <strong>{dist}m</strong>
+                      <span className="bldg-dist" title={props.nearest_building_name ? `Distance to ${props.nearest_building_name}` : ''}>
+                        {props.nearest_building_name ? 'Dist to Neighbor: ' : 'Geom Dist: '}
+                        <strong>{dist}m</strong>
                       </span>
                     </div>
                   </div>

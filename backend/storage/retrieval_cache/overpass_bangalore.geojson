@@ -3,33 +3,18 @@
   "features": [
     {
       "type": "Feature",
-      "id": 205810471,
+      "id": "node/248229053",
       "properties": {
-        "addr:city": "Fairfield",
-        "addr:housenumber": "1342",
-        "addr:postcode": "06824",
-        "addr:state": "CT",
-        "addr:street": "Kings Highway Cutoff",
-        "amenity": "restaurant",
+        "feature_id": "node/248229053",
+        "name": "Bangalore Iyengar's Bakery",
         "building": "yes",
-        "cuisine": "indian",
-        "name": "Bangalore"
+        "type": "bakery"
       },
       "geometry": {
-        "type": "Polygon",
+        "type": "Point",
         "coordinates": [
-          [
-            73.85,
-            18.52
-          ],
-          [
-            73.851,
-            18.521
-          ],
-          [
-            73.85199999999999,
-            18.522
-          ]
+          72.8258775,
+          19.1286228
         ]
       }
     }
@@ -41,8 +26,8 @@
     }
   },
   "provenance": {
-    "api": "Overpass",
+    "api": "overpass-api.de",
     "area": "Bangalore",
-    "query_type": "waterway_and_buildings"
+    "query": "building"
   }
 }

@@ -132,20 +132,48 @@ class OutputEngine:
                     props.get("amenity") or "OpenStreetMap"
                 ])
         else:
-            csv_writer.writerow([
-                "feature_id", "target_class", "matching_method",
-                "distance_meters", "detection_confidence", "matching_confidence", "match_status"
-            ])
-            for m in spatial_result.matched_features:
+            target_buildings = [
+                f for f in all_features
+                if f.get("properties", {}).get("feature_role") in ["target_building", "target_hospital"]
+                or f.get("properties", {}).get("building_name")
+            ]
+            if target_buildings:
                 csv_writer.writerow([
-                    m.match_id,
-                    m.target_class,
-                    m.matching_method,
-                    m.spatial_distance_meters if m.spatial_distance_meters is not None else "N/A",
-                    m.detection_confidence,
-                    m.matching_confidence,
-                    m.match_status
+                    "feature_id", "building_name", "target_class", "calculated_distance_meters",
+                    "nearest_neighbor", "detection_confidence", "latitude", "longitude"
                 ])
+                for b in target_buildings:
+                    props = b.get("properties", {})
+                    rp = props.get("representative_point") or [None, None]
+                    if (not rp or rp[0] is None) and b.get("geometry", {}).get("type") == "Point":
+                        coords = b.get("geometry", {}).get("coordinates", [])
+                        if len(coords) >= 2:
+                            rp = [coords[0], coords[1]]
+                    csv_writer.writerow([
+                        props.get("feature_id") or b.get("id"),
+                        props.get("building_name") or props.get("name"),
+                        props.get("target_class") or "building",
+                        props.get("calculated_distance_meters", "N/A"),
+                        props.get("nearest_building_name", "N/A"),
+                        props.get("detection_confidence", 1.0),
+                        rp[1] if rp and len(rp) == 2 else "N/A",
+                        rp[0] if rp and len(rp) == 2 else "N/A",
+                    ])
+            else:
+                csv_writer.writerow([
+                    "feature_id", "target_class", "matching_method",
+                    "distance_meters", "detection_confidence", "matching_confidence", "match_status"
+                ])
+                for m in spatial_result.matched_features:
+                    csv_writer.writerow([
+                        m.match_id,
+                        m.target_class,
+                        m.matching_method,
+                        m.spatial_distance_meters if m.spatial_distance_meters is not None else "N/A",
+                        m.detection_confidence,
+                        m.matching_confidence,
+                        m.match_status
+                    ])
         csv_text = csv_buffer.getvalue()
 
         # 3. Assemble Interactive Map Layers Configuration for UI
@@ -225,11 +253,17 @@ class OutputEngine:
                 "crs": "EPSG:4326"
             }
         else:
+            target_buildings = [
+                f for f in all_features
+                if f.get("properties", {}).get("feature_role") in ["target_building", "target_hospital"]
+                or f.get("properties", {}).get("building_name")
+            ]
             stats = {
                 "aoi": plan.where,
                 "analytical_task": plan.what,
                 "total_spatial_features": len(all_features),
-                "matched_features_count": len([m for m in spatial_result.matched_features if m.match_status == "matched"]),
+                "total_targets_evaluated": len(target_buildings) if target_buildings else len(all_features),
+                "matched_features_count": len(target_buildings) if target_buildings else len([m for m in spatial_result.matched_features if m.match_status == "matched"]),
                 "unmatched_detections_count": len(spatial_result.unmatched_detections),
                 "unmatched_gis_features_count": len(spatial_result.unmatched_gis_features),
                 "crs": "EPSG:4326",
